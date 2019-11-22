@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-22T06:36:28.877Z</updated>
+  <updated>2019-11-22T06:40:15.056Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux学习笔记</title>
+    <link href="http://yoursite.com/2019/11/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2019/11/22/Linux学习笔记/</id>
+    <published>2019-11-22T06:39:51.000Z</published>
+    <updated>2019-11-22T06:40:15.056Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="常用命令集"><a href="#常用命令集" class="headerlink" title="常用命令集"></a>常用命令集</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;常用命令集&quot;&gt;&lt;a href=&quot;#常用命令集&quot; class=&quot;headerlink&quot; title=&quot;常用命令集&quot;&gt;&lt;/a&gt;常用命令集&lt;/h3&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Pytorch学习笔记</title>
