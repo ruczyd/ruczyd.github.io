@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-28T11:26:14.063Z</updated>
+  <updated>2019-11-22T06:36:28.877Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2019/09/28/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2019/09/28/Pytorch学习笔记/</id>
     <published>2019-09-28T11:18:28.000Z</published>
-    <updated>2019-09-28T11:26:14.063Z</updated>
+    <updated>2019-11-22T06:36:28.877Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="模型的存储和读取"><a href="#模型的存储和读取" class="headerlink" title="模型的存储和读取"></a>模型的存储和读取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">net.state_dict() <span class="comment">#返回一个网络中参数的OrderedDict</span></span><br><span class="line"><span class="comment">#再使用save保存参数值</span></span><br><span class="line"><span class="comment">#读取时先实例化一个相同网络，再</span></span><br><span class="line">net2.load_state_dict(torch.load(PATH))</span><br><span class="line"><span class="comment">#相当于先load进参数，再读入网络中</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="模型的存储和读取"><a href="#模型的存储和读取" class="headerlink" title="模型的存储和读取"></a>模型的存储和读取</h2><h5 id="GPU存储GPU导入"><a href="#GPU存储GPU导入" class="headerlink" title="GPU存储GPU导入"></a>GPU存储GPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#保存</span></span><br><span class="line">torch.save(net.state_dict()) </span><br><span class="line"><span class="comment">#读取时先实例化一个相同网络，再</span></span><br><span class="line">net.load_state_dict(torch.load(PATH))</span><br><span class="line">net.to(device)</span><br></pre></td></tr></table></figure><h5 id="GPU存储CPU导入"><a href="#GPU存储CPU导入" class="headerlink" title="GPU存储CPU导入"></a>GPU存储CPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.load_state_dict(torch.load(PATH,map_location=device))</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;模型的存储和读取&quot;&gt;&lt;a href=&quot;#模型的存储和读取&quot; class=&quot;headerlink&quot; title=&quot;模型的存储和读取&quot;&gt;&lt;/a&gt;模型的存储和读取&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+        &lt;h2 id=&quot;模型的存储和读取&quot;&gt;&lt;a href=&quot;#模型的存储和读取&quot; class=&quot;headerlink&quot; title=&quot;模型的存储和读取&quot;&gt;&lt;/a&gt;模型的存储和读取&lt;/h2&gt;&lt;h5 id=&quot;GPU存储GPU导入&quot;&gt;&lt;a href=&quot;#GPU存储GPU导入&quot; class=&quot;
       
     
     </summary>
