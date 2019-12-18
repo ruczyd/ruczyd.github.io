@@ -56,18 +56,18 @@
   };
 </script>
 
-  <meta name="description" content="模型的存储和读取GPU存储GPU导入12345#保存torch.save(net.state_dict()) #读取时先实例化一个相同网络，再net.load_state_dict(torch.load(PATH))net.to(device) GPU存储CPU导入1net.load_state_dict(torch.load(PATH,map_location=device))">
+  <meta name="description" content="模型的存储和读取GPU存储GPU导入12345#保存torch.save(net.state_dict()) #读取时先实例化一个相同网络，再net.load_state_dict(torch.load(PATH))net.to(device) GPU存储CPU导入1net.load_state_dict(torch.load(PATH,map_location=device)) 一些写法1234">
 <meta name="keywords" content="学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pytorch学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/09/28/Pytorch学习笔记/index.html">
 <meta property="og:site_name" content="DoubleD">
-<meta property="og:description" content="模型的存储和读取GPU存储GPU导入12345#保存torch.save(net.state_dict()) #读取时先实例化一个相同网络，再net.load_state_dict(torch.load(PATH))net.to(device) GPU存储CPU导入1net.load_state_dict(torch.load(PATH,map_location=device))">
+<meta property="og:description" content="模型的存储和读取GPU存储GPU导入12345#保存torch.save(net.state_dict()) #读取时先实例化一个相同网络，再net.load_state_dict(torch.load(PATH))net.to(device) GPU存储CPU导入1net.load_state_dict(torch.load(PATH,map_location=device)) 一些写法1234">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-22T06:36:28.877Z">
+<meta property="og:updated_time" content="2019-12-17T13:44:32.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pytorch学习笔记">
-<meta name="twitter:description" content="模型的存储和读取GPU存储GPU导入12345#保存torch.save(net.state_dict()) #读取时先实例化一个相同网络，再net.load_state_dict(torch.load(PATH))net.to(device) GPU存储CPU导入1net.load_state_dict(torch.load(PATH,map_location=device))">
+<meta name="twitter:description" content="模型的存储和读取GPU存储GPU导入12345#保存torch.save(net.state_dict()) #读取时先实例化一个相同网络，再net.load_state_dict(torch.load(PATH))net.to(device) GPU存储CPU导入1net.load_state_dict(torch.load(PATH,map_location=device)) 一些写法1234">
   <link rel="canonical" href="http://yoursite.com/2019/09/28/Pytorch学习笔记/">
 
 
@@ -241,7 +241,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-22 14:36:28" itemprop="dateModified" datetime="2019-11-22T14:36:28+08:00">2019-11-22</time>
+                <time title="修改时间：2019-12-17 21:44:32" itemprop="dateModified" datetime="2019-12-17T21:44:32+08:00">2019-12-17</time>
               </span>
             
           
@@ -259,6 +259,7 @@
       
         <h2 id="模型的存储和读取"><a href="#模型的存储和读取" class="headerlink" title="模型的存储和读取"></a>模型的存储和读取</h2><h5 id="GPU存储GPU导入"><a href="#GPU存储GPU导入" class="headerlink" title="GPU存储GPU导入"></a>GPU存储GPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#保存</span></span><br><span class="line">torch.save(net.state_dict()) </span><br><span class="line"><span class="comment">#读取时先实例化一个相同网络，再</span></span><br><span class="line">net.load_state_dict(torch.load(PATH))</span><br><span class="line">net.to(device)</span><br></pre></td></tr></table></figure>
 <h5 id="GPU存储CPU导入"><a href="#GPU存储CPU导入" class="headerlink" title="GPU存储CPU导入"></a>GPU存储CPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.load_state_dict(torch.load(PATH,map_location=device))</span><br></pre></td></tr></table></figure>
+<h5 id="一些写法"><a href="#一些写法" class="headerlink" title="一些写法"></a>一些写法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">indices = torch.randperm(args.num_docs_train) <span class="comment">#训练集打乱排序</span></span><br><span class="line">indices = torch.split(indices, args.batch_size) <span class="comment">#分割训练集，按照batch_size分割成多个batch</span></span><br><span class="line"><span class="comment">#梯度裁剪</span></span><br><span class="line"><span class="keyword">if</span> args.clip &gt; <span class="number">0</span>:</span><br><span class="line">    torch.nn.utils.clip_grad_norm_(model.parameters(), args.clip)</span><br><span class="line"><span class="comment">#训练过程中check学习率</span></span><br><span class="line">optimizer.param_groups[<span class="number">0</span>][<span class="string">'lr'</span>]</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -335,7 +336,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的存储和读取"><span class="nav-number">1.</span> <span class="nav-text">模型的存储和读取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GPU存储GPU导入"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">GPU存储GPU导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GPU存储CPU导入"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">GPU存储CPU导入</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模型的存储和读取"><span class="nav-number">1.</span> <span class="nav-text">模型的存储和读取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GPU存储GPU导入"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">GPU存储GPU导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GPU存储CPU导入"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">GPU存储CPU导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一些写法"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">一些写法</span></a></li></ol></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -353,7 +354,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

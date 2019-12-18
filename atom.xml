@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-11T03:29:55.270Z</updated>
+  <updated>2019-12-18T02:20:20.440Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python</title>
+    <link href="http://yoursite.com/2019/12/18/Python/"/>
+    <id>http://yoursite.com/2019/12/18/Python/</id>
+    <published>2019-12-18T02:19:21.000Z</published>
+    <updated>2019-12-18T02:20:20.440Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, axes = plt.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line">axes.flatten() <span class="comment">#展平，不用使用二维索引</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;可视化&quot;&gt;&lt;a href=&quot;#可视化&quot; class=&quot;headerlink&quot; title=&quot;可视化&quot;&gt;&lt;/a&gt;可视化&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>分布式</title>
@@ -65,9 +87,9 @@
     <link href="http://yoursite.com/2019/09/28/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2019/09/28/Pytorch学习笔记/</id>
     <published>2019-09-28T11:18:28.000Z</published>
-    <updated>2019-11-22T06:36:28.877Z</updated>
+    <updated>2019-12-17T13:44:32.880Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="模型的存储和读取"><a href="#模型的存储和读取" class="headerlink" title="模型的存储和读取"></a>模型的存储和读取</h2><h5 id="GPU存储GPU导入"><a href="#GPU存储GPU导入" class="headerlink" title="GPU存储GPU导入"></a>GPU存储GPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#保存</span></span><br><span class="line">torch.save(net.state_dict()) </span><br><span class="line"><span class="comment">#读取时先实例化一个相同网络，再</span></span><br><span class="line">net.load_state_dict(torch.load(PATH))</span><br><span class="line">net.to(device)</span><br></pre></td></tr></table></figure><h5 id="GPU存储CPU导入"><a href="#GPU存储CPU导入" class="headerlink" title="GPU存储CPU导入"></a>GPU存储CPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.load_state_dict(torch.load(PATH,map_location=device))</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="模型的存储和读取"><a href="#模型的存储和读取" class="headerlink" title="模型的存储和读取"></a>模型的存储和读取</h2><h5 id="GPU存储GPU导入"><a href="#GPU存储GPU导入" class="headerlink" title="GPU存储GPU导入"></a>GPU存储GPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#保存</span></span><br><span class="line">torch.save(net.state_dict()) </span><br><span class="line"><span class="comment">#读取时先实例化一个相同网络，再</span></span><br><span class="line">net.load_state_dict(torch.load(PATH))</span><br><span class="line">net.to(device)</span><br></pre></td></tr></table></figure><h5 id="GPU存储CPU导入"><a href="#GPU存储CPU导入" class="headerlink" title="GPU存储CPU导入"></a>GPU存储CPU导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.load_state_dict(torch.load(PATH,map_location=device))</span><br></pre></td></tr></table></figure><h5 id="一些写法"><a href="#一些写法" class="headerlink" title="一些写法"></a>一些写法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">indices = torch.randperm(args.num_docs_train) <span class="comment">#训练集打乱排序</span></span><br><span class="line">indices = torch.split(indices, args.batch_size) <span class="comment">#分割训练集，按照batch_size分割成多个batch</span></span><br><span class="line"><span class="comment">#梯度裁剪</span></span><br><span class="line"><span class="keyword">if</span> args.clip &gt; <span class="number">0</span>:</span><br><span class="line">    torch.nn.utils.clip_grad_norm_(model.parameters(), args.clip)</span><br><span class="line"><span class="comment">#训练过程中check学习率</span></span><br><span class="line">optimizer.param_groups[<span class="number">0</span>][<span class="string">'lr'</span>]</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
